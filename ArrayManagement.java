@@ -7,10 +7,9 @@ public class ArrayManagement {
     static int[] arr;
     static Scanner sc = new Scanner(System.in);
 
-    // Ye raha main method jo error ko theek karega
     public static void main(String[] args) {
         while (true) {
-            System.out.println("\n--- Array Management System ---");
+            System.out.println("\n--- Array Management System (File 1) ---");
             System.out.println("1: Create array");
             System.out.println("2: Iterate the array");
             System.out.println("3: Update the array");
@@ -18,27 +17,23 @@ public class ArrayManagement {
             System.out.println("5: Exit");
             System.out.print("Enter the option: ");
             
-            int op = sc.nextInt();
+            String input = sc.next();
             
-            switch (op) {
-                case 1: 
-                    createArray(); 
-                    break;
-                case 2: 
-                    iterateArrayElement(); 
-                    break;
-                case 3: 
-                    updateArrayElement(); 
-                    break;
-                case 4: 
-                    findMax(); 
-                    break;
-                case 5: 
-                    System.out.println("Exiting the program...");
-                    System.exit(0);
-                    break;
-                default: 
-                    System.out.println("Invalid option. Please try again.\n"); 
+            try {
+                int op = Integer.parseInt(input);
+                switch (op) {
+                    case 1: createArray(); break;
+                    case 2: iterateArrayElement(); break;
+                    case 3: updateArrayElement(); break;
+                    case 4: findMax(); break;
+                    case 5: 
+                        System.out.println("Exiting ArrayManagement...");
+                        System.exit(0);
+                        break;
+                    default: System.out.println("Invalid option!"); 
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid input! Please enter a number.");
             }
         }
     }
@@ -47,7 +42,6 @@ public class ArrayManagement {
         System.out.print("Enter the size of the array: ");
         int size = sc.nextInt();
         arr = new int[size];
-        
         System.out.println("Enter " + size + " elements:");
         for (int i = 0; i < size; i++) {
             arr[i] = sc.nextInt();
@@ -57,10 +51,9 @@ public class ArrayManagement {
 
     public static void iterateArrayElement() {
         if (arr == null) {
-            System.out.println("Array is empty! Please create the array first (Option 1).\n");
+            System.out.println("Array is empty! Please create the array first.\n");
             return;
         }
-        
         System.out.print("Array elements are: ");
         for (int num : arr) {
             System.out.print(num + " ");
@@ -68,30 +61,13 @@ public class ArrayManagement {
         System.out.println("\n");
     }
 
-    public static void findMax() {
-        if (arr == null) {
-            System.out.println("Array is empty! Please create the array first (Option 1).\n");
-            return;
-        }
-        
-        int max = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] > max) {
-                max = arr[i];
-            }
-        }
-        System.out.println("Maximum value in the array is: " + max + "\n");
-    }
-
     public static void updateArrayElement() {
         if (arr == null) {
-            System.out.println("Array is empty! Please create the array first (Option 1).\n");
+            System.out.println("Array is empty! Please create the array first.\n");
             return;
         }
-        
         System.out.print("Enter the index you want to update (0 to " + (arr.length - 1) + "): ");
         int index = sc.nextInt();
-        
         if (index >= 0 && index < arr.length) {
             System.out.print("Enter the new value: ");
             int newValue = sc.nextInt();
@@ -100,5 +76,19 @@ public class ArrayManagement {
         } else {
             System.out.println("Invalid index!\n");
         }
+    }
+
+    public static void findMax() {
+        if (arr == null) {
+            System.out.println("Array is empty! Please create the array first.\n");
+            return;
+        }
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        System.out.println("Maximum value in the array is: " + max + "\n");
     }
 }
