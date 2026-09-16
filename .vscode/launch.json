@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "sumofArrayElement",
+            "request": "launch",
+            "mainClass": "java_assignment.sumofArrayElement",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "IntArrayExample",
             "request": "launch",
             "mainClass": "java_assignment.IntArrayExample",
