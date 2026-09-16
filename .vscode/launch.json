@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "WhileExample",
+            "request": "launch",
+            "mainClass": "java_assignment.WhileExample",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "sumofArrayElement",
             "request": "launch",
             "mainClass": "java_assignment.sumofArrayElement",
